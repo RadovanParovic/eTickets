@@ -1,0 +1,2 @@
+ - controller, klasa kao i sve ali je cini kontrolerom to sto nasljedjuje kontroler base class
+ - vazna stavka je da unutar kontrolera definisemo db context da bismo mogli da radimo sa podacima i bazom podataka
