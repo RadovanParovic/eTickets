@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace eTickets.Controllers
 {
-    public class PoducersController : Controller
+    public class ProducersController : Controller
     {
         private readonly AppDbContext _context;
 
-        public PoducersController(AppDbContext context)
+        public ProducersController(AppDbContext context)
         {
             _context = context;
         }
@@ -20,7 +20,7 @@ namespace eTickets.Controllers
         public async Task<IActionResult> Index()
         {
             var allProducers = await _context.Producers.ToListAsync();
-            return View();
+            return View(allProducers);
         }
     }
 }
