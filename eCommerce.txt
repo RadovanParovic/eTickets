@@ -1,2 +1,20 @@
  - controller, klasa kao i sve ali je cini kontrolerom to sto nasljedjuje kontroler base class
  - vazna stavka je da unutar kontrolera definisemo db context da bismo mogli da radimo sa podacima i bazom podataka
+ 
+ 
+ --RAD SA PODACIMA
+ - kreiramo interfejs i unutar njega definisemo koje cemo metode imati. Definisemo samo return type, ime metode i parametre. Npr: Actor GEtByID(int id);
+ - unutar Data foldera napravili smo novi folder Services. Onda smo kreirali gore navedeni interfejs, pa klasu koja nasljedjuje interfejs.
+ Unutar te klase definisemo dalje metode
+  - da bi radilo, moramo da registrujemo service u Startup.cs Imamo tri vrste service, mi cemo dodati Scoped. Dodajemo ga u ConfigureServices method
+  - kada ne radimo nista sa podacima unutar metode u controlleru mozemo izbaciti async i Task
+  - ako se neki view nalazi unutar nekog foldera, onda znaci da pripada tom kontroleru, i kada pozivam metodu iz tog kontrolera dovoljno je samo asp-action da se navede
+  
+  -create post method - potrebno je definisati Create([Bind("FullName,ProfilePictureURL,Bio")]Actor actor). Bind nam govori sta treba da update-ujemo, koja svojstva,
+  i samo njih ovdje ubacujemo
+  -modelstat is valid - to znaci da li su polja modela validna, da li su sve stavke zadovoljene. Npr dodamo [Required(ErrorMessage = "Profile Picture is required")]. 
+  Ovo znaci da moramo imati sliku, i koja poruka ce se ispisati u slucaju da nemamo slike. Moze i ovako nesto [StringLength(50, MinimumLength = 3, ErrorMessage = "Full Name must be between 3 and 50 chars")]
+  
+  
+  
+  https://dotnethow.net/images/actors/actor-2.jpeg
