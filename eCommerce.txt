@@ -15,6 +15,9 @@
   -modelstat is valid - to znaci da li su polja modela validna, da li su sve stavke zadovoljene. Npr dodamo [Required(ErrorMessage = "Profile Picture is required")]. 
   Ovo znaci da moramo imati sliku, i koja poruka ce se ispisati u slucaju da nemamo slike. Moze i ovako nesto [StringLength(50, MinimumLength = 3, ErrorMessage = "Full Name must be between 3 and 50 chars")]
   
-  
+  -kad imamo npr edit, tu imam ID kao parametar, onda treba u view, u odgovarajuci element dodati asp-route-id (id se moze mijenjati)
+  - ako stavim u metodu kao parametar Actor, ako sva svojstva update-ujem onda ne mora Bind, ako ne sva onda ide
+   - ne mozes imati dvije metode sa istim imenom i istim parametrima. U tom slucaju mozes da kazes ovako [HttpPost, ActionName("Delete")]
+   - kad hocu da stavim u centar jedan div unutar drugog, mogu da kazem da je taj div klase col-md-6 npr
   
   https://dotnethow.net/images/actors/actor-2.jpeg
