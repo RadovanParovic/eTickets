@@ -19,5 +19,26 @@
   - ako stavim u metodu kao parametar Actor, ako sva svojstva update-ujem onda ne mora Bind, ako ne sva onda ide
    - ne mozes imati dvije metode sa istim imenom i istim parametrima. U tom slucaju mozes da kazes ovako [HttpPost, ActionName("Delete")]
    - kad hocu da stavim u centar jedan div unutar drugog, mogu da kazem da je taj div klase col-md-6 npr
+   
+   
+    - ENTITY BASE REPOSITORY
+	
+- posto smo za Actors zavrsili sa osnovnim funkcionalnostima, takve je potrebno dodati i za ostale klase. Ali, da ne bismo opet pisali
+isto za sve, sad cemo da napravimo univerzalne metode koje ce ae koristiti za sve klase
+ - prvo smo kreirali entity base interfejs, i u njega stavljamo zajednicka svojstva za sve klase. U nasem slucaju je to samo ID
+ - sledece je da smo napravili IEntityBaseRepository. Tu cemo staviti sve metode koje su zajednicke, parametar je T, to je genericki
+i zajednicki parametar
+- napravimo klasu EntityBaseRepository koja ce implementirati sve metode definisane u prethodnom interfejsu. Prouciti nasledjivanje.
+- sledeca stvar koju treba uraditi je inject AppDbContext u prethodno kreiran repository, kako bismo mogli raditi sa bazom
+- definisemo genericke metode. Npr ako imamo context.Actors, tu pisemo context.Set<T>(). U definiciji i nasledjivanju smo rekli da je T class
+- kad definisemo metodu za update, koristimo EntityEntry
+- kada smo sve definisali, sad je potrebno Actor zamijeniti ovom novom klasom. Naslijedimo EntityBase interfejs, i mozemo izbrisati
+id iz actor class, ali i ne moramo, bice override 
+- implementacija public interface IActorsService : IEntituBaseRepository<Actor> u actors
+- kad god dodamo neki novi service, moramo u startup.cs da ga dodamo. I tu nam trebaju ta dva, idemo addscoped. I onda moramo da
+ubacimo service u controller, slicno kao db context sto ubacujemo
+- base, prouciti sta znaci
+- kada se salje klasa u action u controlleru mora da ide BIND!
+- kada smo definisali update, nigdje nismo koristili ID, i onda u controlleru pitamo da li je id iz request-a jednak id-ju producera	  
   
   https://dotnethow.net/images/actors/actor-2.jpeg

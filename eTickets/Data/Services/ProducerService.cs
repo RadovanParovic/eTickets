@@ -7,7 +7,10 @@ using System.Threading.Tasks;
 
 namespace eTickets.Data.Services
 {
-    public interface IActorsService : IEntityBaseRepository<Actor>
+    public class ProducerService : EntityBaseRepository<Producer>, IProducerService
     {
+        public ProducerService(AppDbContext context) : base(context) { }
+
+
     }
 }
