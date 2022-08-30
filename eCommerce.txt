@@ -39,6 +39,15 @@ id iz actor class, ali i ne moramo, bice override
 ubacimo service u controller, slicno kao db context sto ubacujemo
 - base, prouciti sta znaci
 - kada se salje klasa u action u controlleru mora da ide BIND!
-- kada smo definisali update, nigdje nismo koristili ID, i onda u controlleru pitamo da li je id iz request-a jednak id-ju producera	  
+- kada smo definisali update, nigdje nismo koristili ID, i onda u controlleru pitamo da li je id iz request-a jednak id-ju producera	
+
+
+- include properties kod Movies potrebno prouciti
+- kad kreiramo dropdown, koristimo select. Prosledjujemo ID-jeve. Kad imamo npr listu int, on zna da je to multiple select,
+ali mozemo da dodamo multiple atribut za svaki slucaj zbog svih browser-a 
+<input asp-for="StartDate" type="date" class="form-control" />
+<input asp-for="Price" type="number" class="form-control" />
+
+
   
   https://dotnethow.net/images/actors/actor-2.jpeg
