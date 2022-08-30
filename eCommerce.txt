@@ -48,6 +48,18 @@ ali mozemo da dodamo multiple atribut za svaki slucaj zbog svih browser-a
 <input asp-for="StartDate" type="date" class="form-control" />
 <input asp-for="Price" type="number" class="form-control" />
 
+new SelectList(movieDropdownsData.Cinemas, "Id", "Name");
 
+asp-items="ViewBag.Cinemas" - ovo koristimo za select list, samo dodamo ovo
+sp-items="Html.GetEnumSelectList<MovieCategory>()" - za kreiranje select list in view
+
+- kreiram partial view za add new funkcionalnost. Definisem da model bude string, kako bih posle mogao da posaljem ime controllera.
+Kad prikazujem partial view, onda kazem @await Html.PartialAsync("_CreatItem", "Producers") 
+
+
+var existingActorsDb = _context.Actors_Movies.Where(n => n.MovieId == data.Id).ToList();
+            _context.Actors_Movies.RemoveRange(existingActorsDb);
+			
+- kada imamo join tabelu, onda u nju dodajemo elemente koji su veza sa nekom tabelom
   
   https://dotnethow.net/images/actors/actor-2.jpeg
