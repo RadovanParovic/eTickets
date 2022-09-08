@@ -41,23 +41,12 @@
                     </form>
 
                     <ul class="navbar-nav">
-                        @await Component.InvokeAsync("ShoppingCartSummary") 
-                    </ul>
-
-                    @*User profile section*@
-                <div class="dropdown">
-                    <button class="btn btn-outline-success dropdown-toggle" type="button" id="profile_btn" data-toggle="dropdown" aria-expanded="false">
-                        <i class="bi bi-person-badge"></i> Hello User
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="profile_btn">
-                        <li>
-                            <a class="dropdown-item" asp-controller="Orders" asp-action="Index">
-                            <i class="bi bi-list"></i> Orders</a>
-                        </li>
-                    </ul>
+                        @await Component.InvokeAsync("ShoppingCartSummary")
+                    </ul>                   
                 </div>
 
-                </div>
+                <partial name="_Identity.cshtml" />
+
             </div>
         </nav>
     </header>
